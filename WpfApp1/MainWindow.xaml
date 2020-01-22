@@ -1,0 +1,89 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="270" Width="670">
+
+    <StackPanel Orientation="Horizontal">
+
+        <DataGrid x:Name="dg_fachNoten" AutoGenerateColumns="False" Foreground="Blue" ItemsSource="{Binding FachMitNote}" IsEnabled="False">
+
+            <DataGrid.Columns  >
+                <DataGridTextColumn Header="Fach" Width="150"  Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Note" Width="50" Binding="{Binding Path=Note}"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <StackPanel Width="260" Margin="10">
+
+            <StackPanel>
+                <Label Content="Notendurchschnitt" HorizontalAlignment="Center" FontSize="15" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+
+                <Button Content="Neu"  Width="50" Click="Btn_neu_Click"  Name="btn_neu"/>
+
+                <Button Content="Speichern"  Width="70" Name="btn_save" IsEnabled="False" Click="Btn_save_Click"/>
+
+                <Button Content="Abbrechen"  Width="70" Name="btn_abbrechen" IsEnabled="False" Click="Btn_abbrechen_Click"/>
+
+                <Button Content="Löschen"  Width="70" Name="btn_löschen" Click="Btn_löschen_Click" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+
+                <Label Content="Fach"/>
+
+                <TextBox Width="100" Name="tb_fach" IsEnabled ="False" Height="25"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+
+                <Label Content="Note"/>
+
+                <TextBox Width="100" Name="tb_note" IsEnabled="False"/>
+
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock Name="tbl_anweisung" HorizontalAlignment="Center" />
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0">
+
+                <Label Content="Durchschnitt"/>
+
+                <TextBox Width="100" Name="tb_durchschnitt" IsEnabled="False" />
+
+            </StackPanel>
+            
+            
+
+        </StackPanel>
+
+        <StackPanel Width="150" >
+
+            <StackPanel Width="150" Height="100" HorizontalAlignment="Center" >
+                <Label Content="Deine beste Note:"  HorizontalAlignment="Center"/>
+                <TextBox Width="80" Name="tb_bestenote" IsEnabled="False" />
+            </StackPanel>
+
+            <StackPanel Height="100" HorizontalAlignment="Center">
+                <Label Content=" Deine schlechteste Note:" HorizontalAlignment="Center"/>
+                <TextBox Width="80 " Name="tb_snote" IsEnabled="False" />
+            </StackPanel>
+
+
+        </StackPanel>
+
+       
+    </StackPanel>
+
+</Window>
